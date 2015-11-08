@@ -1,0 +1,21 @@
+@import "_colors";
+
+button {
+	border: 0;
+	border-radius: 3px;
+	background: none;
+	color: $clouds;
+	cursor: pointer;
+	outline: none;
+	text-align: center;
+	padding: 0 5px;
+
+	&:hover{
+		background-color: $clouds;
+		color: $pomegranate;
+	}
+
+	&.fa {
+		text-align: center;
+	}
+}

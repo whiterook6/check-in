@@ -1,20 +1,39 @@
-@font-face {
-	font-family: AlegreyaBold;
-	src: url('fonts/Alegreya-Bold.otf');
-}
-@font-face {
-	font-family: AlegreyaItalic;
-	src: url('fonts/Alegreya-Italic.otf');
-}
-@font-face {
-	font-family: AlegreyaBoldItalic;
-	src: url('fonts/Alegreya-BoldItalic.otf');
-}
-@font-face {
-	font-family: AlegreyaRegular;
-	src: url('fonts/Alegreya-Regular.otf');
+@mixin serif() {
+	font-family: Alegreya, Georgia, Arial, serif;
 }
 
-.serif {
-	font-family: "AlegreyaRegular", "Georgia", Arial, serif;
+@mixin sans() {
+	font-family: Lato, Arial, serif;
+}
+
+h1 {
+	$font-size: 36px;
+	@include serif;
+	font-size: $font-size;
+	line-height: $font-size;
+	margin: $font-size/2 0 $font-size/4;
+}
+h2 {
+	$font-size: 24px;
+	@include serif;
+	font-size: $font-size;
+	line-height: $font-size;
+	margin: $font-size/2 0 $font-size/4;
+}
+h3 {
+	$font-size: 20px;
+	@include sans;
+	font-size: $font-size;
+	line-height: $font-size;
+	margin: $font-size/2 0 $font-size/4;
+}
+
+body {
+	@include sans;
+	font-size: 16px;
+	line-height: 1.428;
+}
+
+p, li {
+	margin-top: 7px;
 }

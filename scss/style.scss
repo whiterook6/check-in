@@ -1,9 +1,10 @@
 @import "_colors";
 @import "_layout";
+@import "_elements";
 @import "_fonts";
 
-body {
-	box-sizing: border-box;
-	width: 100%;
+html, body {
 	height: 100%;
+	width: 100%;
 }
+
