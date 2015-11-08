@@ -1,0 +1,21 @@
+@font-face {
+	font-family: AlegreyaBold;
+	src: url('fonts/Alegreya-Bold.otf');
+}
+@font-face {
+	font-family: AlegreyaItalic;
+	src: url('fonts/Alegreya-Italic.otf');
+}
+@font-face {
+	font-family: AlegreyaBoldItalic;
+	src: url('fonts/Alegreya-BoldItalic.otf');
+}
+@font-face {
+	font-family: AlegreyaRegular;
+	src: url('fonts/Alegreya-Regular.otf');
+}
+
+body {
+	font-family: "AlegreyaRegular", "Georgia", Arial, serif;
+	font-size: 22px;
+}
