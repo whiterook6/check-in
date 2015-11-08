@@ -2,3 +2,5 @@
 *.min
 bower_components
 .DS_Store
+.sass-cache/
+css/
