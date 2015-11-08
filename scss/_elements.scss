@@ -2,20 +2,31 @@
 
 button {
 	border: 0;
+	color: inherit;
+	background-color: inherit;
 	border-radius: 3px;
-	background: none;
-	color: $clouds;
 	cursor: pointer;
 	outline: none;
 	text-align: center;
 	padding: 0 5px;
+}
 
-	&:hover{
-		background-color: $clouds;
-		color: $pomegranate;
-	}
+.dark-bg button:hover{
+	background-color: $clouds;
+	color: $alizarin;
+}
 
-	&.fa {
-		text-align: center;
-	}
+.light-bg button:hover{
+	background-color: $alizarin;
+	color: $clouds;
+}
+
+.preview {
+	margin: 20px;
+	-webkit-box-shadow: 0px 10px 20px 0px $asbestos;
+	-moz-box-shadow: 0px 10px 20px 0px $asbestos;
+	box-shadow: 0px 10px 20px 0px $asbestos;
+	border: 1px solid $pomegranate;
+	background-color: $clouds;
+	padding: 4px;
 }

@@ -10,7 +10,12 @@ html {
 }
 
 .row {
-	> * { float: left; }
+	margin: 0 -1rem;
+
+	> * {
+		padding: 0 1rem;
+		float: left;
+	}
 
 	&:after {
 		clear: both;
@@ -82,4 +87,12 @@ html {
 
 .right {
 	float: right;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align: center;
 }
