@@ -1,0 +1,18 @@
+{
+  "name": "check-in",
+  "authors": [
+    "whiterook6 <whiterook6@gmail.com>"
+  ],
+  "description": "Simple webapp for uploading, annotating, and tracking images to be used as design documents or specs.",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
