@@ -1,0 +1,4 @@
+*.css
+*.min
+bower_components
+.DS_Store
