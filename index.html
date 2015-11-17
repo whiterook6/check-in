@@ -15,7 +15,7 @@
 
 <div class="flexi-bar dark-bg">
 	<h1>Check-In</h1>
-	<h2>Projects <button class="right fa fa-plus"></button></h2>
+	<h2>Projects</h2>
 	<ul>
 		<li class="light-bg">Pillar</li>
 	</ul>
@@ -31,17 +31,47 @@
 		<p>Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur commodo, incididunt cupim nulla. Ipsum dolore incididunt ham, alcatra corned beef shank ground round cupidatat laboris mollit anim. Short ribs beef non, ground round pastrami in salami turkey adipisicing ribeye.</p>
 		<p class="align-right"><span class="fa fa-chevron-right"></span> <a href="http://dev.campaignpillar.com" class="url light-bg">http://dev.campaignpillar.com</a></p>
 		<h2>Designs</h2>
-		<h3>Most Recent <button class="fa fa-chevron-down"></button></h3>
+		<h3>Most Recent</h3>
 		<ul>
-			<li>Phonebanking: <span class="monospace">C86DB3</span> <button class="fa fa-cloud-upload"></button></li>
+			<li>Phonebanking: <span class="monospace">C86DB3</span></li>
 		</ul>
 
 		<form>
 			<div class="row">
 				<div class="col-4">
+					<label>Buttons</label>
+				</div>
+				<div class="col-4">
+					<button type="button">Button 1</button>
+				</div>
+				<div class="col-4">
+					<button type="button" class="fa fa-upload-cloud"></button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4 error">
+					<button type="button">Error</button>
+				</div>
+				<div class="col-4 warning">
+					<button type="button">Warning</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4 success">
+					<button type="button">Success</button>
+				</div>
+				<div class="col-4">
+					<button type="button">Meh</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">
 					<label>Project Name</label>
 				</div>
-				<div class="col-8">
+				<div class="col-4">
+					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
+				</div>
+				<div class="col-4">
 					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
 				</div>
 			</div>
@@ -59,7 +89,7 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 				<div class="col-4">
 					<label>Approved</label>
 				</div>
-				<div class="col-8 checkbox">
+				<div class="col-4 checkbox">
 					<label><input type="checkbox" value="true" />Reviewed</label>
 					<label><input type="checkbox" value="true" />Approved</label>
 				</div>
@@ -68,9 +98,11 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 				<div class="col-4">
 					<label>Environment</label>
 				</div>
-				<div class="col-8 radio">
-					<label><input type="radio" value="true" />Production</label>
-					<label><input type="radio" value="true" />Development</label>
+				<div class="col-4 radio">
+					<label><input type="radio" value="true" name="environment"/>Production</label>
+				</div>
+				<div class="col-4 radio">
+					<label><input type="radio" value="true" name="environment"/>Development</label>
 				</div>
 			</div>
 			<div class="row">

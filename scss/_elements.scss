@@ -1,26 +1,5 @@
 @import "_colors";
 
-button {
-	border: 0;
-	color: inherit;
-	background-color: inherit;
-	border-radius: 3px;
-	cursor: pointer;
-	outline: none;
-	text-align: center;
-	padding: 0 5px;
-}
-
-.dark-bg button:hover{
-	background-color: $clouds;
-	color: $alizarin;
-}
-
-.light-bg button:hover{
-	background-color: $alizarin;
-	color: $clouds;
-}
-
 .preview {
 	margin: 20px;
 	-webkit-box-shadow: 0px 10px 20px 0px $asbestos;
@@ -29,66 +8,4 @@ button {
 	border: 1px solid $pomegranate;
 	background-color: $clouds;
 	padding: 4px;
-}
-
-form {
-	.row {
-		margin-top: 1rem;
-		margin-bottom: 1rem;
-	}
-
-	label {
-		padding: 6px 0;
-		display: block;
-		font-weight: bold;
-	}
-
-	textarea, input, select { outline: none; }
-}
-
-.error .form-element {
-	color: $pomegranate;
-	border-color: $pomegranate;
-	-webkit-box-shadow: 0px 0px 4px 0px $pomegranate;
-	-moz-box-shadow: 0px 0px 4px 0px $pomegranate;
-	box-shadow: 0px 0px 4px 0px $pomegranate;
-}
-
-.warning .form-element {
-	color: $orange;
-	border-color: $orange;
-	-webkit-box-shadow: 0px 0px 4px 0px $orange;
-	-moz-box-shadow: 0px 0px 4px 0px $orange;
-	box-shadow: 0px 0px 4px 0px $orange;
-}
-
-.success .form-element {
-	color: $nephritis;
-	border-color: $nephritis;
-	-webkit-box-shadow: 0px 0px 4px 0px $nephritis;
-	-moz-box-shadow: 0px 0px 4px 0px $nephritis;
-	box-shadow: 0px 0px 4px 0px $nephritis;
-}
-
-.form-element {
-	padding: 6px 12px;
-	border-radius: 3px;
-	border: 1px solid $silver;
-	display: block;
-	width: 100%;
-    -webkit-transition: border-color ease-in-out .1s,-webkit-box-shadow ease-in-out .1s;
-    -o-transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
-    transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
-
-	&:focus {
-		color: $peter-river;
-		border-color: $peter-river;
-		-webkit-box-shadow: 0px 0px 4px 0px $peter-river;
-		-moz-box-shadow: 0px 0px 4px 0px $peter-river;
-		box-shadow: 0px 0px 4px 0px $peter-river;
-	}
-}
-
-.checkbox label, .radio label{
-	font-weight: normal;
 }
