@@ -134,4 +134,29 @@ form, .form {
 			color: $belize-hole;
 		}
 	}
+
+	/* Select / Dropdowns: button.dropdown */
+	.dropdown {
+		background-color: $asbestos;
+		color: $white;
+		border: 0;
+		border-radius: 3px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $concrete;
+		}
+
+		&:after {
+			font: normal normal normal 14px/1 FontAwesome;
+			content: "\f078";
+			float: right;
+			line-height: 1.428;
+			font-size: inherit;
+		}
+
+		&.open:after {
+			content: "\f077";
+		}
+	}
 }
