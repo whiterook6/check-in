@@ -1,6 +1,6 @@
 @import "_colors";
 
-form {
+form, .form {
 	.row {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
@@ -10,58 +10,128 @@ form {
 		padding: 6px 0;
 		display: block;
 	}
-}
 
-textarea, input, select { outline: none; }
-
-.form-element {
-	padding: 6px 12px;
-	border-radius: 3px;
-	border: 1px solid $silver;
-	display: block;
-	width: 100%;
-    -webkit-transition: border-color ease-in-out .1s,-webkit-box-shadow ease-in-out .1s;
-    -o-transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
-    transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
-
-	&:focus {
-		color: $peter-river;
-		border-color: $peter-river;
-		-webkit-box-shadow: 0px 0px 4px 0px $peter-river;
-		-moz-box-shadow: 0px 0px 4px 0px $peter-river;
-		box-shadow: 0px 0px 4px 0px $peter-river;
+	/* Padding, Sizing */
+	button, input[type='text'], input[type='password'], select, textarea {
+		padding: 6px 12px;
+		display: block;
+		width: 100%;
+		outline: none;
+		margin: 0; // safari is introducing margin: 2px 0; to buttons.
 	}
-}
 
-.error .form-element, .form-element.error {
-	color: $pomegranate;
-	border-color: $pomegranate;
-
-	&:focus {
-		-webkit-box-shadow: 0px 0px 4px 0px $pomegranate;
-		-moz-box-shadow: 0px 0px 4px 0px $pomegranate;
-		box-shadow: 0px 0px 4px 0px $pomegranate;
+	.inline button, button.inline,
+	.inline input[type='text'], input[type='text'].inline,
+	.inline input[type='password'], input[type='password'].inline,
+	.inline select, select.inline,
+	.inline textarea, textarea .inline {
+		display: inline-block;
+		width: auto;
 	}
-}
 
-.warning .form-element, .form-element.warning {
-	color: $orange;
-	border-color: $orange;
+	/* Bordered glowy items: input[text], textarea, select: .input */
+	.input {
+		border-radius: 3px;
+		border: 1px solid $silver;
+		-webkit-transition: border-color ease-in-out .1s,-webkit-box-shadow ease-in-out .1s;
+		-o-transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
+		transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s;
 
-	&:focus {
-		-webkit-box-shadow: 0px 0px 4px 0px $orange;
-		-moz-box-shadow: 0px 0px 4px 0px $orange;
-		box-shadow: 0px 0px 4px 0px $orange;
+	    &:focus {
+			border-color: $belize-hole;
+			-webkit-box-shadow: 0px 0px 4px 0px $belize-hole;
+			-moz-box-shadow: 0px 0px 4px 0px $belize-hole;
+			box-shadow: 0px 0px 4px 0px $belize-hole;
+	    }
 	}
-}
 
-.success .form-element, .form-element.success {
-	color: $nephritis;
-	border-color: $nephritis;
+	.error .input, .input.error {
+		border-color: $alizarin;
 
-	&:focus {
-		-webkit-box-shadow: 0px 0px 4px 0px $nephritis;
-		-moz-box-shadow: 0px 0px 4px 0px $nephritis;
-		box-shadow: 0px 0px 4px 0px $nephritis;
+		&:focus {
+			-webkit-box-shadow: 0px 0px 4px 0px $alizarin;
+			-moz-box-shadow: 0px 0px 4px 0px $alizarin;
+			box-shadow: 0px 0px 4px 0px $alizarin;
+		}
+	}
+
+	.warning .input, .input.warning {
+		border-color: $sun-flower;
+
+		&:focus {
+			-webkit-box-shadow: 0px 0px 4px 0px $sun-flower;
+			-moz-box-shadow: 0px 0px 4px 0px $sun-flower;
+			box-shadow: 0px 0px 4px 0px $sun-flower;
+		}
+	}
+
+	.success .input, .input.success {
+		border-color: $nephritis;
+
+		&:focus {
+			-webkit-box-shadow: 0px 0px 4px 0px $nephritis;
+			-moz-box-shadow: 0px 0px 4px 0px $nephritis;
+			box-shadow: 0px 0px 4px 0px $nephritis;
+		}
+	}
+
+	.notice .input, .input.notice {
+		border-color: $peter-river; // Note that default focus color already matches, so is omitted
+	}
+
+	/* Filled items: button, input['submit']: .button */
+	.button {
+		background-color: $concrete;
+		border-radius: 3px;
+		border: 1px solid $concrete;
+		color: $white;
+		cursor: pointer;
+		padding: 5px 11px;
+
+		&:hover {
+			background-color: $white;
+			color: $concrete;
+
+		}
+	}
+
+	.error .button, .button.error {
+		border-color: $alizarin;
+		background-color: $alizarin;
+
+		&:hover {
+			background-color: $white;
+			color: $alizarin;
+		}
+	}
+
+	.warning .button, .button.warning {
+		border-color: $sun-flower;
+		background-color: $sun-flower;
+
+		&:hover {
+			background-color: $white;
+			color: $sun-flower;
+		}
+	}
+
+	.success .button, .button.success {
+		border-color: $emerald;
+		background-color: $emerald;
+
+		&:hover {
+			background-color: $white;
+			color: $emerald;
+		}
+	}
+
+	.notice .button, .button.notice {
+		border-color: $belize-hole;
+		background-color: $belize-hole;
+
+		&:hover {
+			background-color: $white;
+			color: $belize-hole;
+		}
 	}
 }

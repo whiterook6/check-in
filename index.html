@@ -39,48 +39,72 @@
 		<form>
 			<div class="row">
 				<div class="col-4">
+					<label>Inline</label>
+				</div>
+				<div class="col-8 inline">
+					<button type="button" class="button error">Error</button>
+					<button type="button" class="button warning">Warning</button>
+					<button type="button" class="button success">Success</button>
+					<button type="button" class="button notice">Notice</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">
 					<label>Buttons</label>
 				</div>
 				<div class="col-4">
-					<button type="button">Button 1</button>
+					<button type="button" class="button">Button 1</button>
 				</div>
 				<div class="col-4">
-					<button type="button" class="fa fa-upload-cloud"></button>
+					<button type="button" class="button"><span class="fa fa-cloud-upload"></span></button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-4 offset-4 error">
-					<button type="button">Error</button>
+					<button type="button" class="button">Error</button>
 				</div>
 				<div class="col-4 warning">
-					<button type="button">Warning</button>
+					<button type="button" class="button">Warning</button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-4 offset-4 success">
-					<button type="button">Success</button>
+					<button type="button" class="button">Success</button>
 				</div>
-				<div class="col-4">
-					<button type="button">Meh</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-4">
-					<label>Project Name</label>
-				</div>
-				<div class="col-4">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
-				</div>
-				<div class="col-4">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
+				<div class="col-4 notice">
+					<button type="button" class="button">Notice</button>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-4">
-					<label>Description</label>
+					<label>Textboxes</label>
 				</div>
-				<div class="col-8">
-					<textarea class="form-element">
+				<div class="col-4">
+					<input type="text" class="input" value="sdkjhadkjhs askdjhaks jdh" />
+				</div>
+				<div class="col-4">
+					<input type="password" class="input" value="password" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4">
+					<input type="text" class="input error" value="Error" />
+				</div>
+				<div class="col-4">
+					<input type="text" class="input warning" value="Warning" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4">
+					<input type="text" class="input success" value="Success" />
+				</div>
+				<div class="col-4">
+					<input type="text" class="input notice" value="Notice" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input" rows="10">
 Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur commodo, incididunt cupim nulla. Ipsum dolore incididunt ham, alcatra corned beef shank ground round cupidatat laboris mollit anim. Short ribs beef non, ground round pastrami in salami turkey adipisicing ribeye.
 					</textarea>
 				</div>
@@ -121,7 +145,7 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 					<label>Error</label>
 				</div>
 				<div class="col-8">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
+					<input type="text" class="input" value="sdkjhadkjhs askdjhaks jdh" />
 				</div>
 			</div>
 			<div class="row warning">
@@ -129,7 +153,7 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 					<label>Warning</label>
 				</div>
 				<div class="col-8">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
+					<input type="text" class="input" value="sdkjhadkjhs askdjhaks jdh" />
 				</div>
 			</div>
 			<div class="row success">
@@ -137,24 +161,15 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 					<label>Success</label>
 				</div>
 				<div class="col-8">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
+					<input type="text" class="input" value="sdkjhadkjhs askdjhaks jdh" />
 				</div>
 			</div>
-			<div class="row default">
+			<div class="row notice">
 				<div class="col-4">
-					<label>Default</label>
+					<label>Notice</label>
 				</div>
 				<div class="col-8">
-					<input class="form-element" type="text" value="sdkjhadkjhs askdjhaks jdh" />
-				</div>
-			</div>
-			<div class="row default">
-				<div class="col-4">
-					<label>Controls</label>
-				</div>
-				<div class="col-8">
-					<button type="button">Button</button>
-					<input type="button" value="Input" />
+					<input type="text" class="input" value="sdkjhadkjhs askdjhaks jdh" />
 				</div>
 			</div>
 		</form>
