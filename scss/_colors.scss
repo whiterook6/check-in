@@ -21,6 +21,29 @@ $wisteria: #8e44ad;
 $white: #fff;
 $black: #000;
 
+$disabled-alizarin: mix($alizarin, #999);
+$disabled-amethyst: mix($amethyst, #999);
+$disabled-asbestos: mix($asbestos, #999);
+$disabled-belize-hole: mix($belize-hole, #999);
+$disabled-carrot: mix($carrot, #999);
+$disabled-clouds: mix($clouds, #999);
+$disabled-concrete: mix($concrete, #999);
+$disabled-emerald: mix($emerald, #999);
+$disabled-green-sea: mix($green-sea, #999);
+$disabled-midnight-blue: mix($midnight-blue, #999);
+$disabled-nephritis: mix($nephritis, #999);
+$disabled-orange: mix($orange, #999);
+$disabled-peter-river: mix($peter-river, #999);
+$disabled-pomegranate: mix($pomegranate, #999);
+$disabled-pumpkin: mix($pumpkin, #999);
+$disabled-silver: mix($silver, #999);
+$disabled-sun-flower: mix($sun-flower, #999);
+$disabled-turquoise: mix($turquoise, #999);
+$disabled-wet-asphalt: mix($wet-asphalt, #999);
+$disabled-wisteria: mix($wisteria, #999);
+$disabled-white: mix($white, #999);
+$disabled-black: mix($black, #999);
+
 .dark-bg {
 	background-color: $pomegranate;
 	color: $clouds;

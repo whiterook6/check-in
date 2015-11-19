@@ -39,6 +39,28 @@
 		<form>
 			<div class="row">
 				<div class="col-4">
+					<label>Progress Bar</label>
+				</div>
+				<div class="col-8">
+					<div class="progress-bar">
+						<div class="progress"></div>
+					</div>
+					<div class="error progress-bar">
+						<div class="progress"></div>
+					</div>
+					<div class="warning progress-bar">
+						<div class="progress"></div>
+					</div>
+					<div class="success progress-bar">
+						<div class="progress"></div>
+					</div>
+					<div class="notice progress-bar">
+						<div class="progress"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">
 					<label>Dropdown Element</label>
 				</div>
 				<div class="col-8">
@@ -58,6 +80,17 @@
 			</div>
 			<div class="row">
 				<div class="col-4">
+					<label>Disabled</label>
+				</div>
+				<div class="col-4">
+					<button type="button" class="button" disabled>Disabled</button>
+				</div>
+				<div class="col-4">
+					<button type="button" class="button" disabled><span class="fa fa-cloud-upload"></span></button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">
 					<label>Inline</label>
 				</div>
 				<div class="col-8 inline">
@@ -68,7 +101,10 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-4 offset-4 error">
+				<div class="col-4">
+					<label>Statuses</label>
+				</div>
+				<div class="col-4 error">
 					<button type="button" class="button">Error</button>
 				</div>
 				<div class="col-4 warning">
@@ -81,6 +117,22 @@
 				</div>
 				<div class="col-4 notice">
 					<button type="button" class="button">Notice</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4 error">
+					<button type="button" class="button" disabled>Disabled</button>
+				</div>
+				<div class="col-4 warning">
+					<button type="button" class="button" disabled>Disabled</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4 success">
+					<button type="button" class="button" disabled>Disabled</button>
+				</div>
+				<div class="col-4 notice">
+					<button type="button" class="button" disabled>Disabled</button>
 				</div>
 			</div>
 			<div class="row">
@@ -111,10 +163,66 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-4 offset-4">
+					<input type="text" class="input error" value="Disabled" disabled />
+				</div>
+				<div class="col-4">
+					<input type="text" class="input warning" value="Disabled" disabled />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4 offset-4">
+					<input type="text" class="input success" value="Disabled" disabled />
+				</div>
+				<div class="col-4">
+					<input type="text" class="input notice" value="Disabled" disabled />
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-8 offset-4">
-					<textarea class="input" rows="10">
+					<textarea class="input" rows="3">
 Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur commodo, incididunt cupim nulla. Ipsum dolore incididunt ham, alcatra corned beef shank ground round cupidatat laboris mollit anim. Short ribs beef non, ground round pastrami in salami turkey adipisicing ribeye.
 					</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input error" rows="3">Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input warning" rows="3">Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input success" rows="3">Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input notice" rows="3">Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input error" rows="3" disabled>Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input warning" rows="3" disabled>Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input success" rows="3" disabled>Cow laborum est cillum pariatur.</textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8 offset-4">
+					<textarea class="input notice" rows="3" disabled>Cow laborum est cillum pariatur.</textarea>
 				</div>
 			</div>
 			<div class="row">
@@ -139,17 +247,6 @@ Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur com
 				</div>
 				<div class="col-4 radio">
 					<label><input type="radio" value="true" />Cow laborum est cillum pariatur. Tongue adipisicing dolor bresaola excepteur commodo, incididunt cupim nulla. Ipsum dolore incididunt ham, alcatra corned beef shank ground round cupidatat laboris mollit anim. Short ribs beef non, ground round pastrami in salami turkey adipisicing ribeye.</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-4">
-					<label>Dropdown</label>
-				</div>
-				<div class="col-8">
-					<select class="form-element">
-						<option>Option 1</option>
-						<option>Option 1</option>
-					</select>
 				</div>
 			</div>
 		</form>
