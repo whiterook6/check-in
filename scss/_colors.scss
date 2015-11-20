@@ -45,15 +45,15 @@ $disabled-white: mix($white, #999);
 $disabled-black: mix($black, #999);
 
 .dark-bg {
-	background-color: $pomegranate;
+	background-color: $midnight-blue;
 	color: $clouds;
 }
 
 .light-bg {
 	background-color: $white;
-	color: $pomegranate;
+	color: $midnight-blue;
 
 	a {
-		color: $pomegranate;
+		color: $midnight-blue;
 	}
 }
