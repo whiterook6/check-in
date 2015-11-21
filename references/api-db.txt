@@ -1,0 +1,146 @@
+API models
+
+Project: {
+	id,
+	name,
+	description,
+	created_on,
+	updated_on,
+	deleted_on,
+	created_by: # or {} or "API_ROOT/users/#",
+	updated_by: # or {} or "API_ROOT/users/#",
+	deleted_by: # or {} or "API_ROOT/users/#",
+	designs:    [] or "API_ROOT/project/#/designs"
+	comments:   [] or "API_ROOT/project/#/comments"
+}
+
+Design: {
+	id,
+	name,
+	description,
+	created_on,
+	updated_on,
+	deleted_on,
+	created_by: # or {} or "API_ROOT/users/#",
+	updated_by: # or {} or "API_ROOT/users/#",
+	deleted_by: # or {} or "API_ROOT/users/#",
+	versions:   [#] or [{}] or "API_ROOT/designs/#/versions"
+	comments:   [#] or [{}] or "API_ROOT/designs/#/comments"
+}
+
+Version: {
+	id: #
+	filename:    ""
+	created_on:  "",
+	updated_on:  "",
+	deleted_on:  "",
+	approved_on: "",
+	previous:    # or {} or "API_ROOT/versions/#",
+	next:        # or {} or "API_ROOT/versions/#",
+	created_by:  # or {} or "API_ROOT/users/#",
+	updated_by:  # or {} or "API_ROOT/users/#",
+	deleted_by:  # or {} or "API_ROOT/users/#",
+	approved_by: # or {} or "API_ROOT/users/#",
+	comments:    [#] or [{}] or "API_ROOT/version/#/comments"
+}
+
+Comment: {
+	id,
+	body,
+	commentee_id,
+	commentee_type,
+	created_on:  ""
+	deleted_on:  ""
+	previous:    # or "API_ROOT/comments/#",
+	next:        # or "API_ROOT/comments/#",
+	created_by:  [#] or [{}] or "API_ROOT/users/#"
+	deleted_by:  [#] or [{}] or "API_ROOT/users/#"
+}
+
+API paths
+
+GET    /projects.id, .urls, .full
+POST   /projects
+GET    /projects/#.id, .urls, .full
+POST   /projects/#
+DELETE /projects/#
+
+GET    /projects/#/designs.id, .urls, .full
+POST   /projects/#/designs
+GET    /designs/#.id, .urls, .full
+POST   /designs/#
+DELETE /designs/#
+
+GET    /designs/#/versions.id, .urls, .full
+POST   /designs/#/versions
+GET    /versions/#.id, .urls, .full
+POST   /versions/#
+DELETE /versions/#
+
+GET    /comments/#.id, .urls, .full
+POST   /comments/#
+GET    /projects/#/comments.id, .urls, .full
+POST   /projects/#/comments
+GET    /designs/#/comments.id, .urls, .full
+POST   /designs/#/comments
+GET    /versions/#/comments.id, .urls, .full
+POST   /versions/#/comments
+
+GET    /users.id, .full
+POST   /users
+GET    /users/#.urls, .full
+POST   /users/#
+DELETE /users/#
+
+DB Tables:
+
+projects: {
+	id: int unsigned not null auto increment primary key
+	name: varchar
+	description: varchar
+	created_on: datetime
+	updated_on: datetime 
+	deleted_on: datetime 
+	created_by: int unsigned references users.id
+	updated_by: int unsigned references users.id
+	deleted_by: int unsigned references users.id
+}
+
+designs: {
+	id: int unsigned not null auto increment primary key
+	project_id: int unsigned not null references projects.id
+	name: varchar
+	description: varchar
+	created_on: datetime
+	updated_on: datetime
+	deleted_on: datetime
+	created_by: int unsigned references users.id
+	updated_by: int unsigned references users.id
+	deleted_by: int unsigned references users.id
+}
+
+versions: {
+	id: int unsigned not null auto increment primary key
+	design_id: int unsigned references design.id
+	filename: varchar
+	created_on: datetime
+	updated_on: datetime
+	deleted_on: datetime
+	approved_on: datetime
+	previous: int unsigned references versions.id
+	next:     int unsigned references versions.id
+	created_by: int unsigned references users.id
+	updated_by: int unsigned references users.id
+	deleted_by: int unsigned references users.id
+	approved_by: int unsigned references users.id
+}
+
+comments: {
+	id: int unsigned not null auto increment primary key
+	created_on: datetime
+	deleted_on: datetime
+	created_by: int unsigned references users.id
+	updated_by: int unsigned references users.id
+	deleted_by: int unsigned references users.id
+	approved_by: int unsigned references users.id
+}
