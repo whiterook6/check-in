@@ -19,6 +19,7 @@ $turquoise: #1abc9c;
 $wet-asphalt: #34495e;
 $wisteria: #8e44ad;
 $white: #fff;
+$dark-grey: #333;
 $black: #000;
 
 $disabled-alizarin: mix($alizarin, #999);
@@ -45,13 +46,19 @@ $disabled-white: mix($white, #999);
 $disabled-black: mix($black, #999);
 
 .dark-bg {
-	background-color: $midnight-blue;
+	background-color: $dark-grey;
 	color: $clouds;
 }
 
 .light-bg {
-	background-color: $white;
+	background-color: $clouds;
 	color: $midnight-blue;
+
+	.content {
+		background-color: $white;
+		border: 1px solid $silver;
+		border-radius: 3px;
+	}
 
 	a {
 		color: $midnight-blue;

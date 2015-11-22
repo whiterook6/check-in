@@ -1,7 +1,7 @@
 (function(){
 	angular
 		.module('Check-in', ['ngResource'])
-		
+
 		.factory('Projects', ['$resource', function($resource){
 			var resource = $resource(
 				'/api/projects/:id',
@@ -58,8 +58,7 @@
 			var resource = $resource(
 				'/api/projects/:project_id/designs',
 				{
-					project_id: '@project_id',
-					design_id: '@design_id',
+					project_id: '@project_id'
 				}, {
 					list: { method: 'GET' },   // /api/projects/#/designs
 					append: { method: 'POST' } // /api/projects/#/designs
@@ -72,8 +71,7 @@
 			var resource = $resource(
 				'/api/designs/:design_id/versions',
 				{
-					design_id: '@design_id',
-					version_id: '@version_id',
+					design_id: '@design_id'
 				}, {
 					list: { method: 'GET' },   // /api/designs/#/versions
 					append: { method: 'POST' } // /api/designs/#/versions
@@ -81,8 +79,5 @@
 			);
 
 			return resource;
-		}])
-		.controller('CheckinController', [function(){
-			var ctrl = this;
 		}]);
 })();

@@ -64,10 +64,14 @@ html {
 		flex-grow: 1;
 		min-width: 40%;
 		overflow-x: hidden;
+
+		.content {
+			width: 80%;
+			margin: 1rem auto;
+		}
 	}
 
 	.flexi-bar {
-		padding: 4px 1rem;
 		width: 20%;
 		min-width: 20%;
 		overflow-x: hidden;

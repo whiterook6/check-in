@@ -1,0 +1,26 @@
+@import "_colors";
+
+.nav {
+	background-color: $dark-grey;
+
+	.nav-item {
+		padding: 0 1rem;
+		line-height: 2.5;
+		cursor: pointer;
+
+		&:hover, &.active {
+			background-color: $clouds;
+			color: $midnight-blue;
+		}
+
+		&.active {
+			cursor: default;
+		}
+
+		.fa {
+			margin-right: 1rem;
+			width: 1rem;
+			text-align: center;
+		}
+	}
+}
