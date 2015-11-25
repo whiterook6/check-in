@@ -1,11 +1,5 @@
 @import "_colors";
 
-@mixing dropshadow($color){
-	-webkit-box-shadow: 0px 7px 5px -6px $color;
-	-moz-box-shadow: 0px 7px 5px -6px $color;
-	box-shadow: 0px 7px 5px -6px $color;
-}
-
 @mixin rounded($radius) {
 	border-radius: $radius;
 
@@ -31,7 +25,6 @@
 
 	.list-group {
 		@include rounded(3px);
-		@include dropshadow($midnight-blue);
 
 		background-color: $white;
 
@@ -44,6 +37,12 @@
 		.list-item {
 			border: 1px solid $silver;
 			border-top: none;
+
+			&:hover{
+				color: $clouds;
+				background-color: $turquoise;
+				border-color: $green-sea;
+			}
 		}
 	}
 }
