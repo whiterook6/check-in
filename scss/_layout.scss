@@ -54,24 +54,26 @@ html {
 	display: flex;
 
 	.left-bar {
+		min-width: 250px;
 		width: 250px;
 		height: 100%;
 
 		&.mini {
+			min-width: 50px;
 			width: 50px;
 		}
-	}
-
-	.grow {
-		flex-grow: 1;
 	}
 
 	.columns {
 		width: 80%;
 		margin: 0 auto;
+		height: 100%;
+		padding: 1rem 0;
 
 		.column {
 			margin-right: 1rem;
+			width: 100%;
+			overflow-y: scroll;
 
 			&:last-of-type {
 				margin-right: 0;

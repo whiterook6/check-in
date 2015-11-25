@@ -44,13 +44,3 @@ $disabled-wet-asphalt: mix($wet-asphalt, #999);
 $disabled-wisteria: mix($wisteria, #999);
 $disabled-white: mix($white, #999);
 $disabled-black: mix($black, #999);
-
-.dark-bg {
-	background-color: $dark-grey;
-	color: $clouds;
-}
-
-.light-bg {
-	background-color: $clouds;
-	color: $midnight-blue;
-}
