@@ -1,5 +1,25 @@
 @import "_colors";
 
+@mixing dropshadow($color){
+	-webkit-box-shadow: 0px 7px 5px -6px $color;
+	-moz-box-shadow: 0px 7px 5px -6px $color;
+	box-shadow: 0px 7px 5px -6px $color;
+}
+
+@mixin rounded($radius) {
+	border-radius: $radius;
+
+	> :first-of-type {
+		border-top-left-radius: $radius;
+		border-top-right-radius: $radius;
+	}
+
+	> :last-of-type {
+		border-bottom-left-radius: $radius;
+		border-bottom-right-radius: $radius;
+	}
+}
+
 .dark-bg {
 	background-color: $midnight-blue;
 	color: $clouds;
@@ -8,4 +28,22 @@
 .light-bg {
 	background-color: $clouds;
 	color: $midnight-blue;
+
+	.list-group {
+		@include rounded(3px);
+		@include dropshadow($midnight-blue);
+
+		background-color: $white;
+
+		.header {
+			border: 1px solid $midnight-blue;
+			background-color: $midnight-blue;
+			color: $clouds;
+		}
+
+		.list-item {
+			border: 1px solid $silver;
+			border-top: none;
+		}
+	}
 }
