@@ -1,24 +1,22 @@
-
-
-.list-group {
+.box {
 	margin-bottom: 1rem;
 
-	> * {
-		padding: 0.5rem 1rem;
-	}
-}
-
-.project {
-	margin-bottom: 1rem;
-
-	.project-header, .project-description {
+	.box-header {
 		padding: 0.5rem 1rem;
 	}
 
-	.project-preview {
+	.box-item {
+		padding: 0.5rem 1rem;
+
 		img {
 			width: 100%;
 			height: auto;
 		}
 	}
+}
+
+.pil {
+	display: inline-block;
+	text-align: center;
+	padding: 0 0.5rem;
 }

@@ -1,14 +1,12 @@
-@import "_colors";
-
 @mixin rounded($radius) {
 	border-radius: $radius;
 
-	> :first-of-type {
+	> :first-child {
 		border-top-left-radius: $radius;
 		border-top-right-radius: $radius;
 	}
 
-	> :last-of-type {
+	> :last-child {
 		border-bottom-left-radius: $radius;
 		border-bottom-right-radius: $radius;
 	}
@@ -20,6 +18,12 @@
 	box-shadow: 0px 5px 10px 0px rgba($color,0.5);
 }
 
+@mixin glow($color){
+	-webkit-box-shadow: 0px 0px 4px 0px $color;
+	-moz-box-shadow: 0px 0px 4px 0px $color;
+	box-shadow: 0px 0px 4px 0px $color;
+}
+
 .dark-bg {
 	background-color: $midnight-blue;
 	color: $clouds;
@@ -29,27 +33,26 @@
 	background-color: $clouds;
 	color: $midnight-blue;
 
-	.list-group {
+	a, a:hover, a:focus, a:visited {
+		color: $midnight-blue;
+		text-decoration: none;
+	}
+
+	.box {
 		@include rounded(3px);
 		@include box-shadow($silver);
 
 		background-color: $white;
 
-		.list-header {
+		.box-header {
 			border: 1px solid $midnight-blue;
 			background-color: $midnight-blue;
 			color: $clouds;
 		}
 
-		.list-item {
+		.box-item {
 			border: 1px solid $silver;
 			border-top: none;
-
-			&:hover{
-				color: $clouds;
-				background-color: $turquoise;
-				border-color: $green-sea;
-			}
 		}
 	}
 
@@ -73,6 +76,192 @@
 		.project-description {
 			border: 1px solid $silver;
 			border-top: none;
+		}
+	}
+}
+
+.pil {
+	@include rounded(1rem);
+	background-color: $midnight-blue;
+	color: white;
+}
+
+.form {
+
+	/* Bordered glowy items: input[text], textarea, select: .input */
+	.input {
+		border-radius: $border-radius;
+		border: 1px solid $silver;
+		-webkit-transition: border-color ease-in-out .1s,-webkit-box-shadow ease-in-out .1s,color ease-in-out .1s;
+		-o-transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s,color ease-in-out .1s;
+		transition: border-color ease-in-out .1s,box-shadow ease-in-out .1s,color ease-in-out .1s;
+
+	    &:focus {
+			@include glow($silver);
+			border-color: $silver;
+			color: #000;
+		}
+
+		&:disabled {
+			border-color: $disabled-silver;
+			background-color: #eee;
+			color: #666;
+			cursor: not-allowed;
+		}
+	}
+
+	.error .input, .input.error {
+		border-color: $alizarin;
+		color: $alizarin;
+
+		&:focus {
+			@include glow($alizarin);
+			color: #000;
+		}
+
+		&:disabled {
+			border-color: $disabled-alizarin;
+			color: $disabled-alizarin;
+		}
+	}
+
+	.warning .input, .input.warning {
+		border-color: $sun-flower;
+		color: $sun-flower;
+
+		&:focus {
+			@include glow($sun-flower);
+			color: #000;
+		}
+
+		&:disabled {
+			border-color: $disabled-sun-flower;
+			color: $disabled-sun-flower;
+		}
+	}
+
+	.success .input, .input.success {
+		border-color: $green-sea;
+		color: $green-sea;
+
+		&:focus {
+			@include glow($green-sea);
+			color: #000;
+		}
+
+		&:disabled {
+			border-color: $disabled-green-sea;
+			color: $disabled-green-sea;
+		}
+	}
+
+	.notice .input, .input.notice {
+		border-color: $peter-river; // Note that default focus color already matches, so is omitted
+		color: $peter-river;
+
+		&:focus {
+			color: #000;
+		}
+
+		&:disabled {
+			border-color: $disabled-peter-river;
+			color: $disabled-peter-river;
+		}
+	}
+
+	/* Filled items: button, input['submit']: .button */
+	.button {
+		background-color: $midnight-blue;
+		border-radius: $border-radius;
+		border: 1px solid $midnight-blue;
+		color: $white;
+
+		&:hover {
+			background-color: $white;
+			color: $midnight-blue;
+		}
+
+		&:disabled {
+			background-color: $disabled-midnight-blue;
+			border-color: $disabled-midnight-blue;
+			color: #eee;
+			cursor: not-allowed;
+		}
+	}
+
+	.error .button, .button.error {
+		border-color: $alizarin;
+		background-color: $alizarin;
+
+		&:hover {
+			background-color: $white;
+			color: $alizarin;
+		}
+
+		&:disabled {
+			background-color: $disabled-alizarin;
+			border-color: $disabled-alizarin;
+			color: #eee;
+		}
+	}
+
+	.warning .button, .button.warning {
+		border-color: $sun-flower;
+		background-color: $sun-flower;
+
+		&:hover {
+			background-color: $white;
+			color: $sun-flower;
+		}
+
+		&:disabled {
+			background-color: $disabled-sun-flower;
+			border-color: $disabled-sun-flower;
+			color: #eee;
+		}
+	}
+
+	.success .button, .button.success {
+		border-color: $emerald;
+		background-color: $emerald;
+
+		&:hover {
+			background-color: $white;
+			color: $emerald;
+		}
+
+		&:disabled {
+			background-color: $disabled-emerald;
+			border-color: $disabled-emerald;
+			color: #eee;
+		}
+	}
+
+	.notice .button, .button.notice {
+		border-color: $belize-hole;
+		background-color: $belize-hole;
+
+		&:hover {
+			background-color: $white;
+			color: $belize-hole;
+		}
+
+		&:disabled {
+			background-color: $disabled-belize-hole;
+			border-color: $disabled-belize-hole;
+			color: #eee;
+		}
+	}
+
+	/* Select / Dropdowns: button.dropdown */
+	.dropdown {
+		background-color: $midnight-blue;
+		color: $white;
+		border: 0;
+		border-radius: $border-radius;
+
+		&:hover {
+			background-color: $concrete;
 		}
 	}
 }
