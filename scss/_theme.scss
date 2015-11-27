@@ -52,7 +52,32 @@
 
 		.box-item {
 			border: 1px solid $silver;
+			background-color: $white;
 			border-top: none;
+		}
+
+		button.box-item {
+			&:hover{
+				background-color: $turquoise;
+				color: $white;
+
+				.pil {
+					background-color: $white;
+					color: $midnight-blue;
+
+					&.success {
+						color: $turquoise;
+					}
+
+					&.warning {
+						color: $sun-flower;
+					}
+
+					&.error {
+						color: $alizarin;
+					}
+				}
+			}
 		}
 	}
 
@@ -82,8 +107,20 @@
 
 .pil {
 	@include rounded(1rem);
-	background-color: $midnight-blue;
-	color: white;
+	color: $white;
+	background-color: $midnight-blue
+}
+
+.error .pil, .pil.error {
+	background-color: $alizarin;
+}
+
+.warning .pill, .pil.warning {
+	background-color: $sun-flower;
+}
+
+.success .pill, .pil.success {
+	background-color: $turquoise;
 }
 
 .form {
@@ -177,8 +214,9 @@
 		color: $white;
 
 		&:hover {
-			background-color: $white;
-			color: $midnight-blue;
+			background-color: $turquoise;
+			border-color: $turquoise;
+			color: $white;
 		}
 
 		&:disabled {
@@ -261,7 +299,7 @@
 		border-radius: $border-radius;
 
 		&:hover {
-			background-color: $concrete;
+			background-color: $turquoise;
 		}
 	}
 }

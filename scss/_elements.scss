@@ -1,3 +1,8 @@
+img {
+	width: 100%;
+	height: auto;
+}
+
 .box {
 	margin-bottom: 1rem;
 
@@ -7,11 +12,15 @@
 
 	.box-item {
 		padding: 0.5rem 1rem;
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
 
-		img {
-			width: 100%;
-			height: auto;
-		}
+	button.box-item {
+		cursor: pointer;
+		outline: none;
+		margin: 0; // safari is introducing margin: 2px 0; to buttons.
 	}
 }
 
