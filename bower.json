@@ -1,22 +1,14 @@
 {
-  "name": "check-in",
   "authors": [
-    "whiterook6 <whiterook6@gmail.com>"
+    "whiterook6"
   ],
-  "description": "Simple webapp for uploading, annotating, and tracking images to be used as design documents or specs.",
-  "main": "",
-  "moduleType": [],
-  "license": "MIT",
-  "homepage": "",
+  "license": "private",
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
-    "angular": "~1.4.7",
-    "angular-resource": "~1.4.7"
+    "angular": "~1.4.5"
   }
 }

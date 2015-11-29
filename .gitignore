@@ -1,6 +1,12 @@
+.DS_Store
+
 *.css
 *.min
-bower_components
-.DS_Store
 .sass-cache/
-css/
+.env
+.vagrant/
+
+composer.lock
+vendor
+bower_components
+node_modules

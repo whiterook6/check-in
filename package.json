@@ -1,0 +1,12 @@
+{
+  "name": "Check-in",
+  "version": "0.1.0",
+  "description": "An asset check-in service",
+  "authors": [
+    "whiterook6@gmail.com"
+  ],
+  "repository": {
+    "type": "git"
+  },
+  "private": true,
+}
