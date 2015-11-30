@@ -4,12 +4,12 @@
 	},
 	"autoload": {
 		"classmap": [
+			"app",
 			"database",
-			"modules"
+			"src"
 		],
 		"psr-4": {
-			"App\\": "app/",
-			"Pillar\\": "modules/"
+			"src\\": "src/"
 		}
 	},
 	"scripts": {
