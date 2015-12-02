@@ -60,6 +60,7 @@
 			&:hover{
 				background-color: $turquoise;
 				color: $white;
+				border-color: $turquoise;
 
 				.pil {
 					background-color: $white;
@@ -300,6 +301,13 @@
 
 		&:hover {
 			background-color: $turquoise;
+		}
+
+		&:disabled {
+			background-color: $disabled-midnight-blue;
+			border-color: $disabled-midnight-blue;
+			color: #eee;
+			cursor: not-allowed;
 		}
 	}
 }
