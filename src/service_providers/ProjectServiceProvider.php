@@ -4,6 +4,7 @@ namespace Checkin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Model;
+use Checkin\Controllers\ProjectController;
 
 class ProjectServiceProvider {
 	public function boot(){
@@ -13,6 +14,22 @@ class ProjectServiceProvider {
 			Route::get(   '/projects/{project_id}.{extension}', 'Checkin\Controllers\ProjectController@read');
 			Route::post(  '/projects/{project_id}',             'Checkin\Controllers\ProjectController@update');
 			Route::delete('/projects/{project_id}',             'Checkin\Controllers\ProjectController@delete');
+		});
+
+		Project::creating(function($project){
+			$project['creator'] = Auth::user();
+		});
+
+		Project::updating(function($project){
+			$project['updator'] = Auth::user();
+		});
+
+		Project::saving(function($project){
+			$project['updator'] = Auth::user();
+		});
+
+		Project::deleting(function($project){
+			$project['deletor'] = Auth::user();
 		});
 	}
 
