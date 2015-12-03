@@ -21,8 +21,8 @@ class Project extends Model {
 	public function designs(){ return $this->hasMany('Checkin\Models\Design', 'project_id'); }
 
 	// Has Many Requirements and Comments, which are polymorphic
-	public function requirements(){ return $this->morphsMany('Checkin\Models\Requirement', 'requirementable'); }
-	public function comments(){     return $this->morphsMany('Checkin\Models\Comment',     'commentable'); }
+	public function requirements(){ return $this->morphMany('Checkin\Models\Requirement', 'requirementable'); }
+	public function comments(){     return $this->morphMany('Checkin\Models\Comment',     'commentable'); }
 
 	// Helper Functions
 	public static function url($project_id){

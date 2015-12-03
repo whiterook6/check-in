@@ -10,7 +10,7 @@ class Requirement extends Model{
 
 	protected $table = 'requirements';
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $fillable = ['name', 'name', 'description', 'created_by', 'updated_by', 'completed_by', 'deleted_by'];
+	protected $fillable = ['name', 'description', 'created_by', 'updated_by', 'completed_by', 'deleted_by'];
 
 	// Belongs to (Users in this case)
 	public function creator(){ return $this->belongsTo('Checkin\Models\User', 'created_by'); }

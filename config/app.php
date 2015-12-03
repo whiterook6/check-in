@@ -141,9 +141,18 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
+        // App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        /*
+         * Checkin Service Providers
+         */
+        Checkin\Providers\ProjectServiceProvider::class,
+        Checkin\Providers\DesignServiceProvider::class,
+        Checkin\Providers\VersionServiceProvider::class,
+        Checkin\Providers\CommentServiceProvider::class,
+        Checkin\Providers\RequirementServiceProvider::class,
 
     ],
 

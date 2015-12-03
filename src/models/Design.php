@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Design extends Model {
 	use SoftDeletes;
 
-	protected $table = 'projects';
+	protected $table = 'designs';
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 	protected $fillable = ['name', 'description', 'project_id', 'created_by', 'updated_by', 'deleted_by'];
 

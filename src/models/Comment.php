@@ -4,7 +4,7 @@ namespace Checkin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Checking\Controllers\Controller;
+use Checkin\Controllers\Controller;
 
 class Comment extends Model {
 	use SoftDeletes;
