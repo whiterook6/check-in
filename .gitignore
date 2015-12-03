@@ -5,6 +5,7 @@
 .sass-cache/
 .env
 .vagrant/
+*.log
 
 composer.lock
 vendor
