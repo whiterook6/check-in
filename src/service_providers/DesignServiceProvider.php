@@ -37,6 +37,9 @@ class DesignServiceProvider extends ServiceProvider {
 
 		Design::deleting(function($design){
 			$design->deleted_by = Auth::user()->id;
+
+			// Since the model isn't loaded like normal here, we have to actually save it :|
+			$design->save();
 		});
 	}
 

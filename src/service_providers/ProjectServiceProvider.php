@@ -36,8 +36,10 @@ class ProjectServiceProvider extends ServiceProvider {
 		});
 
 		Project::deleting(function($project){
-			// Not working yet!
-			// $project->deleted_by = Auth::user()->id;
+			$project->deleted_by = Auth::user()->id;
+
+			// Since the model isn't loaded like normal here, we have to actually save it :|
+			$project->save();
 		});
 	}
 

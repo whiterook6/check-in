@@ -33,6 +33,9 @@ class VersionServiceProvider extends ServiceProvider {
 
 		Version::deleting(function($version){
 			$version->deleted_by = Auth::user()->id;
+
+			// Since the model isn't loaded like normal here, we have to actually save it :|
+			$version->save();
 		});
 	}
 
