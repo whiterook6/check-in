@@ -22,25 +22,6 @@ class ProjectServiceProvider extends ServiceProvider {
 			Route::get(    '/projects/{project_id}/requirements.{extension?}', 'Checkin\Controllers\ProjectController@index_requirements');
 			Route::post(   '/projects/{project_id}/requirements',              'Checkin\Controllers\ProjectController@create_requirement');
 		});
-
-		Project::creating(function($project){
-			$project->created_by = Auth::user()->id;
-		});
-
-		Project::updating(function($project){
-			$project->updated_by = Auth::user()->id;
-		});
-
-		Project::saving(function($project){
-			$project->updated_by = Auth::user()->id;
-		});
-
-		Project::deleting(function($project){
-			$project->deleted_by = Auth::user()->id;
-
-			// Since the model isn't loaded like normal here, we have to actually save it :|
-			$project->save();
-		});
 	}
 
 	public function register(){

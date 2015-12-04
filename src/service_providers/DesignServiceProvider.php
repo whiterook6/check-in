@@ -22,25 +22,6 @@ class DesignServiceProvider extends ServiceProvider {
 			Route::get(    '/designs/{design_id}/requirements.{extension?}', 'Checkin\Controllers\DesignController@index_requirements');
 			Route::post(   '/designs/{design_id}/requirements',              'Checkin\Controllers\DesignController@create_requirement');
 		});
-
-		Design::creating(function($design){
-			$design->created_by = Auth::user()->id;
-		});
-
-		Design::updating(function($design){
-			$design->updated_by = Auth::user()->id;
-		});
-
-		Design::saving(function($design){
-			$design->updated_by = Auth::user()->id;
-		});
-
-		Design::deleting(function($design){
-			$design->deleted_by = Auth::user()->id;
-
-			// Since the model isn't loaded like normal here, we have to actually save it :|
-			$design->save();
-		});
 	}
 
 	public function register(){

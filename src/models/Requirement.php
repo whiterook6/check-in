@@ -4,25 +4,23 @@ namespace Checkin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Checkin\Traits\Versionable;
 
 class Requirement extends Model{
-	use SoftDeletes;
+	use SoftDeletes, Versionable;
 
 	protected $table = 'requirements';
 	protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-	protected $fillable = ['name', 'description', 'created_by', 'updated_by', 'completed_by', 'deleted_by'];
+	protected $fillable = ['name', 'description'];
 
 	// Belongs to (Users in this case)
-	public function creator(){ return $this->belongsTo('Checkin\Models\User', 'created_by'); }
-	public function updator(){ return $this->belongsTo('Checkin\Models\User', 'updated_by'); }
 	public function completor(){ return $this->belongsTo('Checkin\Models\User', 'completed_by'); }
-	public function deletor(){ return $this->belongsTo('Checkin\Models\User', 'deleted_by'); }
 
 	// Polymorphism: Can be used for projects, designs, versions
 	public function requirementable(){ return $this->morphTo(); }
 
 	// Helper Functions
-	public static function url($requirement_id){
+	public static function index_url($requirement_id){
 		return Controller::API_ROOT."/requirements/{$requirement_id}";
 	}
 }

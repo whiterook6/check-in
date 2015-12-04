@@ -31,11 +31,12 @@ class User extends Model
 	public static function index_url(){
 		return Controller::API_ROOT.'/users';
 	}
-	public static function read_url($user_id){
-		return self::index_url()."/{$user_id}";
+
+	public function read_url(){
+		return self::index_url()."/{$this->id}";
 	}
 
-	public static function comments_url($user_id){
-		return self::read_url($user_id)."/comments";
+	public function comments_url(){
+		return $this::read_url()."/comments";
 	}
 }
