@@ -148,6 +148,7 @@ return [
         /*
          * Checkin Service Providers
          */
+        Checkin\Providers\UserServiceProvider::class,
         Checkin\Providers\ProjectServiceProvider::class,
         Checkin\Providers\DesignServiceProvider::class,
         Checkin\Providers\VersionServiceProvider::class,

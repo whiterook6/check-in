@@ -18,6 +18,13 @@ class UserServiceProvider extends ServiceProvider {
 			Route::delete( '/users/{project_id}',           'Checkin\Controllers\UserController@delete');
 		});
 
+		Route::group(['prefix' => '/auth'], function(){
+			Route::get( 'login',  'Checkin\Controllers\UserController@login');
+			Route::post('login',  'Checkin\Controllers\UserController@login');
+			Route::get( 'logout', 'Checkin\Controllers\UserController@logout');
+			Route::post('logout', 'Checkin\Controllers\UserController@logout');
+		});
+
 		// Version::creating(function($version){
 		// 	$version['creator'] = Auth::user();
 		// });

@@ -2,6 +2,7 @@
 
 namespace Checkin\Controllers;
 
+use Auth;
 use Checkin\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,17 @@ class UserController extends Controller {
 	}
 
 	public function create(Request $request){
-		$new_user = User::create(self::filter_request($request, [
+		$input = self::filter_request($request, [
 			'name',
-			'email'
-		]));
+			'email',
+			'password'
+		]);
+
+		$new_user = User::create([
+			'name' => $input['name'],
+			'email' => $input['email'],
+			'password' => bcrypt($input['password']),
+		]);
 
 		return $new_user;
 	}
@@ -36,5 +44,23 @@ class UserController extends Controller {
 
 	public function delete($user_id){
 		User::destroy($user_id);
+	}
+
+	public function login(Request $request){
+		$email = $request->input('email');
+		$password = $request->input('password');
+
+		if (Auth::attempt([
+			'email' => $email,
+			'password' => $password
+		])){
+			return Auth::user();
+		} else {
+			return [];
+		}
+	}
+
+	public function logout(){
+		Auth::logout();
 	}
 }
