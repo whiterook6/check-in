@@ -2,6 +2,7 @@
 
 namespace Checkin\Providers;
 
+use Auth;
 use Checkin\Controllers\VersionController;
 use Checkin\Models\Version;
 use Illuminate\Database\Eloquent\Model;
@@ -18,21 +19,21 @@ class VersionServiceProvider extends ServiceProvider {
 			Route::post(   '/versions/{version_id}/comments',             'Checkin\Controllers\VersionController@create_comment');
 		});
 
-		// Version::creating(function($version){
-		// 	$version['creator'] = Auth::user();
-		// });
+		Version::creating(function($version){
+			$version->created_by = Auth::user()->id;
+		});
 
-		// Version::updating(function($version){
-		// 	$version['updator'] = Auth::user();
-		// });
+		Version::updating(function($version){
+			$version->updated_by = Auth::user()->id;
+		});
 
-		// Version::saving(function($version){
-		// 	$version['updator'] = Auth::user();
-		// });
+		Version::saving(function($version){
+			$version->updated_by = Auth::user()->id;
+		});
 
-		// Version::deleting(function($version){
-		// 	$version['deletor'] = Auth::user();
-		// });
+		Version::deleting(function($version){
+			$version->deleted_by = Auth::user()->id;
+		});
 	}
 
 	public function register(){

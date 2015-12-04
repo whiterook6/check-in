@@ -2,6 +2,7 @@
 
 namespace Checkin\Providers;
 
+use Auth;
 use Checkin\Controllers\ProjectController;
 use Checkin\Models\Project;
 use Illuminate\Database\Eloquent\Model;
@@ -22,21 +23,22 @@ class ProjectServiceProvider extends ServiceProvider {
 			Route::post(   '/projects/{project_id}/requirements',              'Checkin\Controllers\ProjectController@create_requirement');
 		});
 
-		// Project::creating(function($project){
-		// 	$project['creator'] = Auth::user();
-		// });
+		Project::creating(function($project){
+			$project->created_by = Auth::user()->id;
+		});
 
-		// Project::updating(function($project){
-		// 	$project['updator'] = Auth::user();
-		// });
+		Project::updating(function($project){
+			$project->updated_by = Auth::user()->id;
+		});
 
-		// Project::saving(function($project){
-		// 	$project['updator'] = Auth::user();
-		// });
+		Project::saving(function($project){
+			$project->updated_by = Auth::user()->id;
+		});
 
-		// Project::deleting(function($project){
-		// 	$project['deletor'] = Auth::user();
-		// });
+		Project::deleting(function($project){
+			// Not working yet!
+			// $project->deleted_by = Auth::user()->id;
+		});
 	}
 
 	public function register(){

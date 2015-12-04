@@ -2,6 +2,7 @@
 
 namespace Checkin\Providers;
 
+use Auth;
 use Checkin\Controllers\DesignController;
 use Checkin\Models\Design;
 use Illuminate\Database\Eloquent\Model;
@@ -22,21 +23,21 @@ class DesignServiceProvider extends ServiceProvider {
 			Route::post(   '/designs/{design_id}/requirements',              'Checkin\Controllers\DesignController@create_requirement');
 		});
 
-		// Design::creating(function($design){
-		// 	$design['creator'] = Auth::user();
-		// });
+		Design::creating(function($design){
+			$design->created_by = Auth::user()->id;
+		});
 
-		// Design::updating(function($design){
-		// 	$design['updator'] = Auth::user();
-		// });
+		Design::updating(function($design){
+			$design->updated_by = Auth::user()->id;
+		});
 
-		// Design::saving(function($design){
-		// 	$design['updator'] = Auth::user();
-		// });
+		Design::saving(function($design){
+			$design->updated_by = Auth::user()->id;
+		});
 
-		// Design::deleting(function($design){
-		// 	$design['deletor'] = Auth::user();
-		// });
+		Design::deleting(function($design){
+			$design->deleted_by = Auth::user()->id;
+		});
 	}
 
 	public function register(){

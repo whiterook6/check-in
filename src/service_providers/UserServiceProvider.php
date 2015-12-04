@@ -19,27 +19,12 @@ class UserServiceProvider extends ServiceProvider {
 		});
 
 		Route::group(['prefix' => '/auth'], function(){
-			Route::get( 'login',  'Checkin\Controllers\UserController@login');
-			Route::post('login',  'Checkin\Controllers\UserController@login');
-			Route::get( 'logout', 'Checkin\Controllers\UserController@logout');
-			Route::post('logout', 'Checkin\Controllers\UserController@logout');
+			Route::get( 'login',   'Checkin\Controllers\UserController@login');
+			Route::post('login',   'Checkin\Controllers\UserController@login');
+			Route::get( 'logout',  'Checkin\Controllers\UserController@logout');
+			Route::post('logout',  'Checkin\Controllers\UserController@logout');
+			Route::get( 'current', 'Checkin\Controllers\UserController@current');
 		});
-
-		// Version::creating(function($version){
-		// 	$version['creator'] = Auth::user();
-		// });
-
-		// Version::updating(function($version){
-		// 	$version['updator'] = Auth::user();
-		// });
-
-		// Version::saving(function($version){
-		// 	$version['updator'] = Auth::user();
-		// });
-
-		// Version::deleting(function($version){
-		// 	$version['deletor'] = Auth::user();
-		// });
 	}
 
 	public function register(){
