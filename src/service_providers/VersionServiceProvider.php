@@ -17,6 +17,8 @@ class VersionServiceProvider extends ServiceProvider {
 			Route::delete( '/versions/{version_id}',                      'Checkin\Controllers\VersionController@delete');
 			Route::get(    '/versions/{version_id}/comments.{extension}', 'Checkin\Controllers\VersionController@index_comments');
 			Route::post(   '/versions/{version_id}/comments',             'Checkin\Controllers\VersionController@create_comment');
+			Route::post(   '/versions/{version_id}/approve',              'Checkin\Controllers\VersionController@approve');
+			Route::post(   '/versions/{version_id}/reject',               'Checkin\Controllers\VersionController@reject');
 		});
 
 		Version::creating(function($version){

@@ -25,15 +25,18 @@ class Project extends Model {
 	public function comments(){     return $this->morphMany('Checkin\Models\Comment',     'commentable'); }
 
 	// Helper Functions
-	public static function url($project_id){
-		return Controller::API_ROOT."/projects/{$project_id}";
+	public static function index_url(){
+		return Controller::API_ROOT.'/projects';
+	}
+	public static function read_url($project_id){
+		return self::index_url()."/{$project_id}";
 	}
 
 	public static function requirements_url($project_id){
-		return self::url($project_id)."/requirements";
+		return self::read_url($project_id)."/requirements";
 	}
 
 	public static function comments_url($project_id){
-		return self::url($project_id)."/comments";
+		return self::read_url($project_id)."/comments";
 	}
 }

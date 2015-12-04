@@ -37,7 +37,7 @@ class UserController extends Controller {
 		$user = User::find($user_id);
 		$user->fill(self::filter_request($request, [
 			'name',
-			'description'
+			'email'
 		]));
 		$user->save();
 	}

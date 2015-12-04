@@ -21,11 +21,14 @@ class Version extends Model {
 	public function comments(){     return $this->morphsMany('Checkin\Models\Comment',     'commentable'); }
 
 	// Helper Functions
-	public static function url($version_id){
-		return Controller::API_ROOT."/versions/{$version_id}";
+	public static function index_url(){
+		return Controller::API_ROOT.'/versions';
+	}
+	public static function read_url($version_id){
+		return self::index_url()."/{$version_id}";
 	}
 
 	public static function comments_url($version_id){
-		return self::url($version_id)."/comments";
+		return self::read_url($version_id)."/comments";
 	}
 }
