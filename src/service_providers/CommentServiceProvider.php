@@ -10,7 +10,7 @@ use Route;
 
 class CommentServiceProvider extends ServiceProvider {
 	public function boot(){
-		Route::group(['prefix' => '/api/v1'], function(){
+		Route::group(['prefix' => '/api'], function(){
 			Route::get(    '/comments/{requirement_id}.{extension?}', 'Checkin\Controllers\CommentController@read');
 			Route::post(   '/comments/{requirement_id}',              'Checkin\Controllers\CommentController@update');
 			Route::delete( '/comments/{requirement_id}',              'Checkin\Controllers\CommentController@delete');

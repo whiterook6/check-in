@@ -10,7 +10,7 @@ use Route;
 
 class RequirementServiceProvider extends ServiceProvider {
 	public function boot(){
-		Route::group(['prefix' => '/api/v1'], function(){
+		Route::group(['prefix' => '/api'], function(){
 			Route::get(    '/requirements/{requirement_id}.{extension?}', 'Checkin\Controllers\RequirementController@read');
 			Route::post(   '/requirements/{requirement_id}',              'Checkin\Controllers\RequirementController@update');
 			Route::delete( '/requirements/{requirement_id}',              'Checkin\Controllers\RequirementController@delete');

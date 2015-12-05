@@ -10,7 +10,7 @@ use Route;
 
 class UserServiceProvider extends ServiceProvider {
 	public function boot(){
-		Route::group(['prefix' => '/api/v1'], function(){
+		Route::group(['prefix' => '/api'], function(){
 			Route::get(    '/users.{extension?}',           'Checkin\Controllers\UserController@index');
 			Route::post(   '/users',                        'Checkin\Controllers\UserController@create');
 			Route::get(    '/users/{user_id}.{extension?}', 'Checkin\Controllers\UserController@read');
