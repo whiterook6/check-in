@@ -12,7 +12,7 @@ trait Versionable {
 	public function updator(){ return $this->belongsTo('Checkin\Models\User', 'updated_by'); }
 	public function deletor(){ return $this->belongsTo('Checkin\Models\User', 'deleted_by'); }
 
-	public static function boot(){
+	public static function bootVersionable(){
 		self::creating(function($model){
 			$model->created_by = Auth::user()->id;
 		});
