@@ -1,6 +1,7 @@
 (function(){
 	angular.module('Check-in').controller('CheckinController', ['Projects', function(projects_service){
 		var ctrl = this;
+		ctrl.projects = projects_service;
 
 		ctrl.forms = {
 			new_project: {
@@ -26,8 +27,10 @@
 				}
 			}
 		};
-		ctrl.forms.new_project.refresh();
 
-		ctrl.projects = projects_service;
+		function init(){
+			ctrl.forms.new_project.refresh();
+		}
+		init();
 	}]);
 })();

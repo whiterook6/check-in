@@ -13,7 +13,7 @@ class RequirementServiceProvider extends ServiceProvider {
 		Route::group(['prefix' => '/api/v1'], function(){
 			Route::get(      '/requirements/{requirement_id}.{extension?}', 'Checkin\Controllers\RequirementController@read');
 			Route::post(     '/requirements/{requirement_id}',              'Checkin\Controllers\RequirementController@update');
-			Route::complete( '/requirements/{requirement_id}',              'Checkin\Controllers\RequirementController@complete');
+			Route::post(     '/requirements/{requirement_id}/complete',     'Checkin\Controllers\RequirementController@complete');
 			Route::delete(   '/requirements/{requirement_id}',              'Checkin\Controllers\RequirementController@delete');
 		});
 	}

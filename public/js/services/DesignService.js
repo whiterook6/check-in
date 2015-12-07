@@ -1,6 +1,6 @@
 (function(){
 	angular.module('Check-in').factory('Designs', ['$resource', function($resource){
-		var resource = $resource(
+		var _resource = $resource(
 			'/api/designs/:id/:model',
 			{
 				id: '@id'
@@ -20,6 +20,36 @@
 			}
 		);
 
+		var designs = {
+			_resource: _resource,
+			all: {},
+			
+			read: function(design){
+				var promise = _resource.read(design).$promise;
+				promise.then(function(response){
+					angular.merge(design, response);
+					designs.all[design.id] = design;
+				});
+
+				return promise;
+			},
+
+			update: function(design){
+				var promise = _resource.update(design).$promise;
+				promise.then(function(response){
+
+				});
+
+				return promise;
+			},
+
+			delete: function(design){
+				var promise = _resource.delete(design).$promise;
+				delete designs.all[design.id];
+
+				return promise;
+			}
+		};
 		return resource;
 	}]);
 })();

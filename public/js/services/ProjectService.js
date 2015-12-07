@@ -24,12 +24,15 @@
 
 		var projects = {
 			_resource: _resource,
-			all: [],
+			all: {},
 
 			index: function(){
 				var promise = _resource.index().$promise;
 				promise.then(function(response){
-					projects.all = response;
+					for (var i = response.length - 1; i >= 0; i--) {
+						var project = response[i];
+						projects.all[project.id] = project;
+					}
 				});
 
 				return promise;
@@ -38,7 +41,8 @@
 			create: function(project){
 				var promise = _resource.create(project).$promise;
 				promise.then(function(response){
-					projects.all.push(project);
+					angular.extend(project, response);
+					projects.all[project.id] = project;
 				});
 
 				return promise;
@@ -47,21 +51,27 @@
 			read: function(project){
 				var promise = _resource.read(project).$promise;
 				promise.then(function(response){
-					for (var i = projects.all.length - 1; i >= 0; i--) {
-						var _current = projects.all[i];
-						if (_current.id === project.id){
-							angular.merge(_current, project);
-							break;
-						}
-					}
+					angular.extend(project, response);
+					projects.all[project.id] = project;
 				});
 
 				return promise;
 			},
 
-			delete: function(project){
-				var promise = projects._resource.delete(project).$promise;
+			update: function(project){
+				var promise = _resource.update(project).$promise;
+				promise.then(function(response){
+					angular.extend(project, response);
+					projects.all[project.id] = project;
+				});
+				return promise;
+			},
 
+			delete: function(project){
+				var promise = _resource.delete(project).$promise;
+				delete projects.all[project.id];
+				
+				return promise;
 			}
 		};
 
