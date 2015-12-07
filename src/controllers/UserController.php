@@ -46,24 +46,6 @@ class UserController extends Controller {
 		User::destroy($user_id);
 	}
 
-	public function login(Request $request){
-		$email = $request->input('email');
-		$password = $request->input('password');
-
-		if (Auth::attempt([
-			'email' => $email,
-			'password' => $password
-		])){
-			return Auth::user();
-		} else {
-			return [];
-		}
-	}
-
-	public function logout(){
-		Auth::logout();
-	}
-
 	public function current(){
 		return Auth::user();
 	}

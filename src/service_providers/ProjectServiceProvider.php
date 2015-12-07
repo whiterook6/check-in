@@ -11,7 +11,7 @@ use Route;
 
 class ProjectServiceProvider extends ServiceProvider {
 	public function boot(){
-		Route::group(['prefix' => '/api'], function(){
+		Route::group(['prefix' => '/api', 'middleware' => 'auth'], function(){
 			Route::get(    '/projects.{extension?}',                           'Checkin\Controllers\ProjectController@index');
 			Route::post(   '/projects',                                        'Checkin\Controllers\ProjectController@create');
 			Route::get(    '/projects/{project_id}.{extension?}',              'Checkin\Controllers\ProjectController@read');

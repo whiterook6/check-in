@@ -11,7 +11,7 @@ use Route;
 
 class VersionServiceProvider extends ServiceProvider {
 	public function boot(){
-		Route::group(['prefix' => '/api'], function(){
+		Route::group(['prefix' => '/api', 'middleware' => 'auth'], function(){
 			Route::get(    '/designs/{design_id}/versions.{extension?}',  'Checkin\Controllers\VersionController@index');
 			// note: no create version here. Still need to figure out file uploading first.
 			Route::get(    '/versions/{version_id}.{extension?}',         'Checkin\Controllers\VersionController@read');

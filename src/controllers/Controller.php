@@ -2,6 +2,8 @@
 
 namespace Checkin\Controllers;
 
+use Auth;
+
 class Controller extends \App\Http\Controllers\Controller {
 	public static $API_ROOT = "/api/v1";
 

@@ -11,3 +11,57 @@ html, body {
 	margin: 0;
 }
 
+/* Make clicks pass-through */
+#loading-bar {
+	$duration: 100ms;
+
+	pointer-events: none;
+	-webkit-pointer-events: none;
+	-webkit-transition: $duration linear all;
+	-moz-transition: $duration linear all;
+	-o-transition: $duration linear all;
+	transition: $duration linear all;
+
+	&.ng-enter, &.ng-leave.ng-leave-active {
+		opacity: 0;
+	}
+
+	&.ng-enter.ng-enter-active, &.ng-leave {
+		opacity: 1;
+	}
+
+	.bar {
+		-webkit-transition: width $duration;
+		-moz-transition: width $duration;
+		-o-transition: width $duration;
+		transition: width $duration;
+
+		background: $turquoise;
+		position: fixed;
+		z-index: 10002;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		border-bottom-right-radius: 1px;
+		border-top-right-radius: 1px;
+	}
+
+	/* Fancy blur effect */
+	.peg {
+		position: absolute;
+		width: 70px;
+		right: 0;
+		top: 0;
+		height: 2px;
+		opacity: .45;
+		-moz-box-shadow: $turquoise 1px 0 6px 1px;
+		-ms-box-shadow: $turquoise 1px 0 6px 1px;
+		-webkit-box-shadow: $turquoise 1px 0 6px 1px;
+		box-shadow: $turquoise 1px 0 6px 1px;
+		-moz-border-radius: 100%;
+		-webkit-border-radius: 100%;
+		border-radius: 100%;
+	}
+}
+

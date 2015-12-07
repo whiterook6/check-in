@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Vancouver',
 
     /*
     |--------------------------------------------------------------------------
@@ -148,6 +148,7 @@ return [
         /*
          * Checkin Service Providers
          */
+        Checkin\Providers\AuthServiceProvider::class,
         Checkin\Providers\UserServiceProvider::class,
         Checkin\Providers\ProjectServiceProvider::class,
         Checkin\Providers\DesignServiceProvider::class,
