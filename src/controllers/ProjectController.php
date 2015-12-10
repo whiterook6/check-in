@@ -22,7 +22,7 @@ class ProjectController extends Controller {
 	}
 
 	public function read($project_id){
-		$project = Project::find($project_id);
+		$project = Project::with('designs', 'comments', 'requirements')->find($project_id);
 
 		return $project;
 	}
