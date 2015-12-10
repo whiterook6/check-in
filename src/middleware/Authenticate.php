@@ -35,7 +35,11 @@ class Authenticate {
 
 	public function handle(Request $request, Closure $next){
 		if (!Auth::check()){
-			self::authenticate($request);
+			try {
+				self::authenticate($request);
+			} catch (UnauthenticatedException $ue){
+				return response(null, 401);
+			}
 		}
 
 		return $next($request);

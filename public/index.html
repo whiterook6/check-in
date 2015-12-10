@@ -42,8 +42,10 @@
 		</div>
 
 		<button class="box-item"
-			ng-bind="project.name"
-			ng-repeat="project in ctrl.projects.all"></button>
+			ng-repeat="project in ctrl.projects.all">
+			<span ng-bind="project.name"></span>
+			<span class="right fa fa-trash" ng-click="project.delete()"></span>
+		</button>
 		
 		<form class="box-item"
 			ng-submit="ctrl.forms.new_project.submit()">

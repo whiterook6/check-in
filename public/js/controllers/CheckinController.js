@@ -11,7 +11,7 @@
 				},
 
 				submit: function(){
-					var promise = ctrl.projects.create(this.data);
+					var promise = ctrl.projects.create(this.data.name, this.data.description);
 					promise.then(function(){
 						ctrl.forms.new_project.data = {};
 					});

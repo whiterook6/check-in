@@ -22,6 +22,34 @@
 			}
 		);
 
+		Project = function(model){
+			angular.extend(this, model);
+		};
+
+		Project.prototype = {
+			constructor: Project,
+
+			save: function(){
+				if (this.id){
+					return _resource.update(this).then(function(response){
+						angular.extend(this, response);
+					});
+				} else {
+					return _resource.create(this).then(function(response){
+						angular.extend(this, response);
+					});
+				}
+			},
+
+			delete: function(){
+				if (this.id){
+					return _resource.delete({ // needed because otherwise the whole object is sent via query parameters, since DELETE doesn't post-param things like POST.
+						id: this.id
+					});
+				}
+			}
+		};
+
 		var projects = {
 			_resource: _resource,
 			all: {},
@@ -30,7 +58,7 @@
 				var promise = _resource.index().$promise;
 				promise.then(function(response){
 					for (var i = response.length - 1; i >= 0; i--) {
-						var project = response[i];
+						var project = new Project(response[i]);
 						projects.all[project.id] = project;
 					}
 				});
@@ -38,11 +66,14 @@
 				return promise;
 			},
 
-			create: function(project){
-				var promise = _resource.create(project).$promise;
+			create: function(name, description){
+				var promise = this._resource.create({
+					name: name,
+					description: description
+				}).$promise;
+
 				promise.then(function(response){
-					angular.extend(project, response);
-					projects.all[project.id] = project;
+					projects.all[response.id] = new Project(response);
 				});
 
 				return promise;
@@ -57,22 +88,6 @@
 
 				return promise;
 			},
-
-			update: function(project){
-				var promise = _resource.update(project).$promise;
-				promise.then(function(response){
-					angular.extend(project, response);
-					projects.all[project.id] = project;
-				});
-				return promise;
-			},
-
-			delete: function(project){
-				var promise = _resource.delete(project).$promise;
-				delete projects.all[project.id];
-				
-				return promise;
-			}
 		};
 
 		projects.index();

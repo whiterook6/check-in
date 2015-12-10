@@ -9,6 +9,8 @@ use Route;
 
 class AuthServiceProvider extends ServiceProvider {
 	public function boot(Router $router){
+		$router->middleware('auth.json', 'Checkin\Middleware\Authenticate');
+
 		Route::group(['prefix' => '/auth'], function(){
 			Route::get( 'login',  'Checkin\Controllers\AuthController@login');
 			Route::post('login',  'Checkin\Controllers\AuthController@login');
