@@ -8,5 +8,13 @@
   "repository": {
     "type": "git"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5"
+  }
 }
