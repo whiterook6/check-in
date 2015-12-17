@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.box = "laravel/homestead"
   config.vm.hostname = "check-in"
-  config.vm.network "private_network", ip: "192.168.50.100"
+  config.vm.network "private_network", ip: "192.168.50.200"
   config.vm.provision :shell, path: './provisions/vagrant.sh'
 
   config.vm.synced_folder ".", '/var/www',
