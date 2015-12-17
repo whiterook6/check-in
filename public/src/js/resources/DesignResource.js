@@ -5,6 +5,7 @@
 			{
 				id: '@id'
 			}, {
+				
 				read:   { method: 'GET' },    // /api/designs/#
 				update: { method: 'POST' },   // /api/designs/#
 				delete: { method: 'DELETE' }, // /api/designs/#

@@ -36,6 +36,20 @@
 				});
 
 				return promise;
+			},
+
+			update: function(project){
+				return ProjectResource.update(project).$promise;
+			},
+
+			delete: function(project){
+				var promise = ProjectResource.delete(project).$promise;
+
+				promise.then(function(response){
+					delete projects.all[project.id];
+				});
+
+				return promise;
 			}
 		};
 

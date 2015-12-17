@@ -8,24 +8,13 @@
 			constructor: Project,
 
 			save: function(){
-				var promise = ProjectResource.update(this).$promise;
-				promise.then(function(response){
-					debugger;
-				});
-
-				return promise;
+				return ProjectResource.update(this);
 			},
 
 			delete: function(){
-				var promise = ProjectResource.delete({ // needed because otherwise the whole object is sent via query parameters, since DELETE doesn't post-param things like POST.
+				return ProjectResource.delete({ // needed because otherwise the whole object is sent via query parameters, since DELETE doesn't post-param things like POST.
 					id: this.id
 				}).$promise;
-				
-				promise.then(function(response){
-					debugger;
-				});
-
-				return promise;
 			},
 
 			load_designs: function(){
@@ -34,17 +23,13 @@
 				}).$promise;
 				this.designs = {};
 
-				callback = function(that){
-					return function(response){
-						for (var i = 0; i < response.length; i++) {
-							debugger;
-							var design = new Design(response[i], that);
-							that.designs[design.id] = design;
-						}
-					};
-				};
-
-				promise.then(callback(this));
+				promise.then(function(response){
+					debugger;
+					// for (var i = response.length - 1; i >= 0; i--) {
+					// 	var design = new Design(response[i], this);
+					// 	this.designs[design.id] = design;
+					// };
+				});
 
 				return promise;
 			},
