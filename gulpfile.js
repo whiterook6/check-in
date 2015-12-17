@@ -8,10 +8,13 @@ var  concat = require('gulp-concat'),
 
 var path = {
 	src: {
-		scripts: './public/js/',
-		scss: './public/scss/'
+		scripts: './public/src/js/',
+		scss: './public/src/scss/'
 	},
-	dest: './public/',
+	dest: {
+		js: './public/js',
+		css: './public/css'
+	}
 };
 
 var plumber_error = function(err) {
@@ -27,7 +30,7 @@ gulp.task('dev:build:scss', function() {
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(sourcemaps.write())
 		.pipe(plumber.stop())
-		.pipe(gulp.dest( path.dest+'/css' ));
+		.pipe(gulp.dest( path.dest.css ));
 });
 
 gulp.task('dev:build:js', function() {
@@ -35,10 +38,9 @@ gulp.task('dev:build:js', function() {
 		.pipe(plumber(plumber_error))
 		.pipe(sourcemaps.init())
 		.pipe(concat('site.js'))
-		// .pipe(uglify({compress: false, mangle: false}))
-		.pipe(sourcemaps.write())
+		// .pipe(uglify({compress: false, mangle: false})).pipe(sourcemaps.write())
 		.pipe(plumber.stop())
-		.pipe(gulp.dest( path.dest ));
+		.pipe(gulp.dest( path.dest.js ));
 });
 
 gulp.task('dev:watch', ['dev:build:scss', 'dev:build:js'], function() {
