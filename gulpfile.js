@@ -44,6 +44,6 @@ gulp.task('dev:build:js', function() {
 });
 
 gulp.task('dev:watch', ['dev:build:scss', 'dev:build:js'], function() {
-	gulp.watch( path.src.scripts + '*.js', { interval: 250 }, ['dev:build:js'] );
+	gulp.watch( path.src.scripts + '**/*.js', { interval: 250 }, ['dev:build:js'] );
 	gulp.watch( path.src.scss + '**/*.scss', { interval: 250 }, ['dev:build:scss'] );
 });

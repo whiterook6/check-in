@@ -11,14 +11,14 @@
 				update: {         method: 'POST' },   // /api/projects/#
 				delete: {         method: 'DELETE' }, // /api/projects/#
 
-				designs:       { method: 'GET',  model: 'designs', isArray: true }, // /api/projects/#/designs
-				create_design: { method: 'POST', model: 'designs' }, // /api/projects/#/designs
+				designs:       { method: 'GET',  params: { model: 'designs' }, isArray: true }, // /api/projects/#/designs
+				create_design: { method: 'POST', params: { model: 'designs' }}, // /api/projects/#/designs
 
-				comments:       { method: 'GET',  model: 'comments', isArray: true }, // /api/projects/#/comments
-				create_comment: { method: 'POST', model: 'comments' }, // /api/projects/#/comments
+				comments:       { method: 'GET',  params: { model: 'comments' }, isArray: true }, // /api/projects/#/comments
+				create_comment: { method: 'POST', params: { model: 'comments' }}, // /api/projects/#/comments
 
-				requirements:       { method: 'GET',  model: 'requirements', isArray: true }, // /api/projects/#/requirements
-				create_requirement: { method: 'POST', model: 'requirements' }, // /api/projects/#/requirements
+				requirements:       { method: 'GET',  params: { model: 'requirements' }, isArray: true }, // /api/projects/#/requirements
+				create_requirement: { method: 'POST', params: { model: 'requirements' }}, // /api/projects/#/requirements
 			}
 		);
 
@@ -75,7 +75,6 @@
 			}
 		};
 
-		projects.index();
 		return projects;
 	}]);
 })();
