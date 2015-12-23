@@ -13,7 +13,7 @@ class Authenticate {
 		// user is not yet logged in.
 		// is user supplying credentials?
 		if (!$request->has('email') || !$request->has('password')){
-			throw new UnauthenticatedException();
+			throw new UnauthenticatedException('requires email and password');
 		}
 
 		// if so, validate them
@@ -22,14 +22,14 @@ class Authenticate {
 		]);
 
 		if ($validator->fails()){ // if they don't validate, show those errors.
-			throw new UnauthenticatedException();
+			throw new UnauthenticatedException('validation exception');
 		}
 
 		// otherwise they do validate, but do these credentials match?
 		$credentials = $request->only('email', 'password');
 
 		if (!Auth::attempt($credentials, $request->has('remember'))){
-			throw new UnauthenticatedException();
+			throw new UnauthenticatedException('attempt failed');
 		}
 	}
 
