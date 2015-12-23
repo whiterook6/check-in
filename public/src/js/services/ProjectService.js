@@ -5,11 +5,11 @@
 			{
 				id: '@id'
 			}, {
-				index: {          method: 'GET', isArray: true },    // /api/projects
-				create: {         method: 'POST' },   // /api/projects
-				read: {           method: 'GET' },    // /api/projects/#
-				update: {         method: 'POST' },   // /api/projects/#
-				delete: {         method: 'DELETE' }, // /api/projects/#
+				index: {         method: 'GET', isArray: true },    // /api/projects
+				create: {        method: 'POST' },   // /api/projects
+				read: {          method: 'GET' },    // /api/projects/#
+				update: {        method: 'POST' },   // /api/projects/#
+				delete: {        method: 'DELETE' }, // /api/projects/#
 
 				designs:       { method: 'GET',  params: { model: 'designs' }, isArray: true }, // /api/projects/#/designs
 				create_design: { method: 'POST', params: { model: 'designs' }}, // /api/projects/#/designs
