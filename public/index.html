@@ -27,37 +27,35 @@
 
 	<div class="left-bar dark-bg">
 		<h1>Check-In</h1>
-	</div>
-
-	<div class="right-bar light-bg">
-		<div class="flex columns">
-
-<div class="column" ng-controller="CheckinController as ctrl">
-	<h1>
-		Log In
-	</h1>
-	<form ng-submit="ctrl.forms.login.submit()">
-		<fieldset class="row form"
+		<form ng-controller="LoginController as ctrl"
+			ng-submit="ctrl.forms.login.submit()">
+		<fieldset class="form vertical-form"
 			ng-disabled="ctrl.forms.login.is_disabled()">
-			<div class="col-5">
+			<div class="cell">
 				<input class="input"
 					ng-class="{'success': ctrl.forms.login.data.email}"
 					ng-model="ctrl.forms.login.data.email"
 					placeholder="whiterook6@gmail.com"
 					type="text" />
 			</div>
-			<div class="col-5">
+			<div class="cell">
 				<input class="input"
 					ng-class="{'success': ctrl.forms.login.data.password}"
 					ng-model="ctrl.forms.login.data.password"
 					placeholder="password"
 					type="password" />
 			</div>
-			<div class="col-2">
+			<div class="cell">
 				<button type="submit" class="button" ng-disabled="!ctrl.forms.login.can_submit()">Log In</button>
 			</div>
 		</fieldset>
 	</form>
+	</div>
+
+	<div class="right-bar light-bg">
+		<div class="flex columns">
+
+<div class="column" ng-controller="CheckinController as ctrl">
 	<h1>
 		Projects
 	</h1>
