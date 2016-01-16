@@ -29,7 +29,9 @@
 		};
 
 		function init(){
-			ctrl.projects.index();
+			ctrl.projects.index().then(function(){
+				debugger;
+			});
 			ctrl.forms.new_project.refresh();
 		}
 		init();

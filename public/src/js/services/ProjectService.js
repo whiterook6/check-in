@@ -8,8 +8,7 @@
 				index: {          method: 'GET', isArray: true },    // /api/projects
 				create: {         method: 'POST' },   // /api/projects
 				read: {           method: 'GET' },    // /api/projects/#
-				update: {         method: 'POST' },   // /api/projects/#
-				delete: {         method: 'DELETE' }, // /api/projects/#
+				delete: {         method: 'DELETE' }  // /api/projects/#
 			}
 		);
 
@@ -49,18 +48,9 @@
 				return promise;
 			},
 
-			update: function(project){
-				var promise = _resource.update(project).$promise;
-				promise.then(function(response){
-					angular.extend(project, response);
-					projects.all[project.id] = project;
-				});
-				return promise;
-			},
-
 			delete: function(project){
 				var promise = _resource.delete(project).$promise;
-				delete projects.all[project.id];
+				delete projects[project.id];
 				
 				return promise;
 			}
