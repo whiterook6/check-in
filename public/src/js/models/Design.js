@@ -1,18 +1,13 @@
 (function(){
-	angular.module('Check-in').factory('Design', ['$resource', function($resource){
+	angular.module('Check-in').factory('Design', ['$resource', 'Version', function($resource, Version){
 		var _resource = $resource(
 			'/api/designs/:id/:model',
 			{
 				id: '@id'
 			}, {
+				update:         { method: 'POST' },   // /api/designs/#
 				versions:       { method: 'GET',  params: { model: 'versions' }, isArray: true }, // /api/designs/#/versions
 				create_version: { method: 'POST', params: { model: 'versions' }}, // /api/designs/#/versions
-
-				comments:       { method: 'GET',  params: { model: 'comments' }, isArray: true }, // /api/designs/#/comments
-				create_comment: { method: 'POST', params: { model: 'comments' }}, // /api/designs/#/comments
-
-				requirements:       { method: 'GET',  params: { model: 'requirements' }, isArray: true }, // /api/designs/#/requirements
-				create_requirement: { method: 'POST', params: { model: 'requirements' }}, // /api/designs/#/requirements
 			}
 		);
 
@@ -22,10 +17,19 @@
 
 		Design.prototype = {
 			constructor: Design,
-
 			versions: {},
-			requirements: {},
-			comments: {},
+
+			update: function(){
+				var self = this;
+				var promise = _resource.update(self).$promise;
+
+				promise.then(function(response){
+					angular.extend(self, response);
+					return self;
+				});
+
+				return promise;
+			},
 			
 			index_versions: function(){
 				var self = this;
@@ -35,7 +39,7 @@
 
 				promise.then(function(response){
 					for (var i = response.length - 1; i >= 0; i--) {
-						var version = response[i];
+						var version = new Version(response[i]);
 						version.design = self;
 						self.versions[version.id] = version;
 					}
@@ -49,9 +53,11 @@
 				var promise = _resource.create_version(version).$promise;
 
 				promise.then(function(response){
-					angular.extend(version, response);
+					angular.extend(version, new Version(response));
 					version.design = self;
 					self.versions[version.id] = version;
+
+					return version;
 				});
 
 				return promise;

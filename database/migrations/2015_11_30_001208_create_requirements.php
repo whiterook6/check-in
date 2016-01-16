@@ -20,9 +20,9 @@ class CreateRequirements extends Migration{
             $table->timestamp('completed_at')->nullable();
             $table->softDeletes();
 
-            $table->index(['id', 'name', 'description']);
-            $table->index(['id', 'requirementable_id', 'requirementable_type']);
-            $table->index(['id', 'created_at', 'updated_at', 'completed_at', 'deleted_at'], 'requirements_id_timestamps_index');
+            $table->index(['name', 'description']);
+            $table->index(['requirementable_id', 'requirementable_type']);
+            $table->index(['created_at', 'updated_at', 'completed_at', 'deleted_at'], 'requirements_id_timestamps_index');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('completed_by')->references('id')->on('users')->onDelete('set null');

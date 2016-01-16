@@ -19,8 +19,8 @@ class CreateDesigns extends Migration{
             $table->timestamps();
             $table->softDeletes();
 
-            $table->index(['id', 'project_id', 'name']);
-            $table->index(['id', 'created_at', 'updated_at', 'deleted_at']);
+            $table->index(['project_id', 'name']);
+            $table->index(['created_at', 'updated_at', 'deleted_at']);
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');

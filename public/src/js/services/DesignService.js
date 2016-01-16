@@ -1,43 +1,38 @@
 (function(){
-	angular.module('Check-in').factory('Designs', ['$resource', function($resource){
+	angular.module('Check-in').factory('Designs', ['$resource', 'Design', function($resource, Design){
 		var _resource = $resource(
-			'/api/designs/:id/:model',
+			'/api/designs/:id',
 			{
 				id: '@id'
 			}, {
+				index:  { method: 'GET', isArray: true }, // /api/designs
 				read:   { method: 'GET' },    // /api/designs/#
 				update: { method: 'POST' },   // /api/designs/#
 				delete: { method: 'DELETE' }, // /api/designs/#
-
-				versions:       { method: 'GET',  model: 'versions' }, // /api/designs/#/versions
-				// create_version: { method: 'POST', model: 'versions' }, NOTE: no create version yet. Still need to figure out file uploading first.
-
-				comments:       { method: 'GET',  model: 'comments' }, // /api/designs/#/comments
-				create_comment: { method: 'POST', model: 'comments' }, // /api/designs/#/comments
-
-				requirements:       { method: 'GET',  model: 'requirements'}, // /api/designs/#/requirements
-				create_requirement: { method: 'POST', model: 'requirements'}, // /api/designs/#/requirements
 			}
 		);
 
 		var designs = {
 			_resource: _resource,
 			all: {},
+
+			index: function(filter){
+				var promise = _resource.index(filter).$promise;
+				promise.then(function(response){
+					for (var i = response.length - 1; i >= 0; i--) {
+						var design = new Design(response[i]);
+						designs.all[design.id] = design;
+					}
+				});
+
+				return promise;
+			},
 			
 			read: function(design){
 				var promise = _resource.read(design).$promise;
 				promise.then(function(response){
 					angular.merge(design, response);
 					designs.all[design.id] = design;
-				});
-
-				return promise;
-			},
-
-			update: function(design){
-				var promise = _resource.update(design).$promise;
-				promise.then(function(response){
-
 				});
 
 				return promise;

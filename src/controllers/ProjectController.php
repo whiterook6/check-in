@@ -8,8 +8,20 @@ use Checkin\Models\Comment;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller {
-	public function index(){
-		return Project::get();
+	public function index(Request $request){
+		$this->validate($request, [
+			'order_by' => 'in:name,created_at,updated_at,created_by',
+			'order_direction' => 'in:asc,desc',
+			'filter' => 'string'
+		]);
+
+		$query = Project::query([
+			'order_by' => $request->input('order_by', null),
+			'order_direction' => $request->input('order_direction', 'asc'),
+			'filter' => $request->input('filter')
+		]);
+
+		return $query->get();
 	}
 
 	public function create(Request $request){

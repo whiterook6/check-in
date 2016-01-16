@@ -29,9 +29,14 @@
 		};
 
 		function init(){
-			ctrl.projects.index().then(function(){
-				debugger;
-			});
+			var sort_recent = {
+				order_by: 'created_at',
+				order_direction: 'desc'
+			};
+
+			ctrl.projects.index(sort_recent);
+			ctrl.designs.index(sort_recent);
+			ctrl.versions.index(sort_recent);
 			ctrl.forms.new_project.refresh();
 		}
 		init();

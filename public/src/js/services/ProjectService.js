@@ -5,10 +5,10 @@
 			{
 				id: '@id'
 			}, {
-				index: {          method: 'GET', isArray: true },    // /api/projects
-				create: {         method: 'POST' },   // /api/projects
-				read: {           method: 'GET' },    // /api/projects/#
-				delete: {         method: 'DELETE' }  // /api/projects/#
+				index:  { method: 'GET', isArray: true },    // /api/projects
+				create: { method: 'POST' },   // /api/projects
+				read:   { method: 'GET' },    // /api/projects/#
+				delete: { method: 'DELETE' }  // /api/projects/#
 			}
 		);
 
@@ -16,8 +16,8 @@
 			_resource: _resource,
 			all: {},
 
-			index: function(){
-				var promise = _resource.index().$promise;
+			index: function(filter){
+				var promise = _resource.index(filter).$promise;
 				promise.then(function(response){
 					for (var i = response.length - 1; i >= 0; i--) {
 						var project = new Project(response[i]);

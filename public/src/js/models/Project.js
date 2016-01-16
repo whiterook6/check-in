@@ -5,16 +5,9 @@
 			{
 				id: '@id'
 			}, {
-				update: {         method: 'POST' },   // /api/projects/#
-
+				update:        { method: 'POST' },   // /api/projects/#
 				designs:       { method: 'GET',  params: { model: 'designs' }, isArray: true }, // /api/projects/#/designs
 				create_design: { method: 'POST', params: { model: 'designs' }}, // /api/projects/#/designs
-
-				comments:       { method: 'GET',  params: { model: 'comments' }, isArray: true }, // /api/projects/#/comments
-				create_comment: { method: 'POST', params: { model: 'comments' }}, // /api/projects/#/comments
-
-				requirements:       { method: 'GET',  params: { model: 'requirements' }, isArray: true }, // /api/projects/#/requirements
-				create_requirement: { method: 'POST', params: { model: 'requirements' }}, // /api/projects/#/requirements
 			}
 		);
 
@@ -24,10 +17,17 @@
 
 		Project.prototype = {
 			constructor: Project,
-
 			designs: {},
-			requirements: {},
-			comments: {},
+
+			update: function(){
+				var self = this;
+				var promise = _resource.update(self).$promise;
+				
+				promise.then(function(response){
+					angular.extend(self, response);
+				});
+				return promise;
+			},
 			
 			index_designs: function(){
 				var self = this;
@@ -56,15 +56,6 @@
 					self.designs[design.id] = design;
 				});
 
-				return promise;
-			},
-
-			update: function(){
-				var self = this;
-				var promise = _resource.update(self).$promise;
-				promise.then(function(response){
-					angular.extend(self, response);
-				});
 				return promise;
 			}
 		};

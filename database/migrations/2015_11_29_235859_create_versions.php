@@ -23,9 +23,9 @@ class CreateVersions extends Migration {
             $table->timestamp('approved_at')->nullable();
             $table->softDeletes();
 
-            $table->index(['id', 'design_id', 'filename']);
-            $table->index(['id', 'approved_by', 'approved_at']);
-            $table->index(['id', 'created_at', 'updated_at', 'approved_at', 'deleted_at']);
+            $table->index(['design_id', 'filename']);
+            $table->index(['approved_by', 'approved_at']);
+            $table->index(['created_at', 'updated_at', 'approved_at', 'deleted_at']);
             $table->foreign('design_id')->references('id')->on('designs')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('set null');
