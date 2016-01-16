@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic"
 		rel="stylesheet"
 		type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic"
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic"
 		rel="stylesheet"
 		type="text/css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
@@ -33,31 +33,6 @@
 		<div class="flex columns">
 
 <div class="column" ng-controller="CheckinController as ctrl">
-	<h1>
-		Log In
-	</h1>
-	<form ng-submit="ctrl.forms.login.submit()">
-		<fieldset class="row form"
-			ng-disabled="ctrl.forms.login.is_disabled()">
-			<div class="col-5">
-				<input class="input"
-					ng-class="{'success': ctrl.forms.login.data.email}"
-					ng-model="ctrl.forms.login.data.email"
-					placeholder="whiterook6@gmail.com"
-					type="text" />
-			</div>
-			<div class="col-5">
-				<input class="input"
-					ng-class="{'success': ctrl.forms.login.data.password}"
-					ng-model="ctrl.forms.login.data.password"
-					placeholder="password"
-					type="password" />
-			</div>
-			<div class="col-2">
-				<button type="submit" class="button" ng-disabled="!ctrl.forms.login.can_submit()">Log In</button>
-			</div>
-		</fieldset>
-	</form>
 	<h1>
 		Projects
 	</h1>

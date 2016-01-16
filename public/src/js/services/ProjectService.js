@@ -1,7 +1,7 @@
 (function(){
-	angular.module('Check-in').factory('Projects', ['$resource', function($resource){
+	angular.module('Check-in').factory('Projects', ['$resource', 'Project', function($resource, Project){
 		var _resource = $resource(
-			'/api/projects/:id/:model',
+			'/api/projects/:id',
 			{
 				id: '@id'
 			}, {
@@ -10,15 +10,6 @@
 				read: {           method: 'GET' },    // /api/projects/#
 				update: {         method: 'POST' },   // /api/projects/#
 				delete: {         method: 'DELETE' }, // /api/projects/#
-
-				designs:       { method: 'GET',  params: { model: 'designs' }, isArray: true }, // /api/projects/#/designs
-				create_design: { method: 'POST', params: { model: 'designs' }}, // /api/projects/#/designs
-
-				comments:       { method: 'GET',  params: { model: 'comments' }, isArray: true }, // /api/projects/#/comments
-				create_comment: { method: 'POST', params: { model: 'comments' }}, // /api/projects/#/comments
-
-				requirements:       { method: 'GET',  params: { model: 'requirements' }, isArray: true }, // /api/projects/#/requirements
-				create_requirement: { method: 'POST', params: { model: 'requirements' }}, // /api/projects/#/requirements
 			}
 		);
 
@@ -30,7 +21,7 @@
 				var promise = _resource.index().$promise;
 				promise.then(function(response){
 					for (var i = response.length - 1; i >= 0; i--) {
-						var project = response[i];
+						var project = new Project(response[i]);
 						projects.all[project.id] = project;
 					}
 				});
